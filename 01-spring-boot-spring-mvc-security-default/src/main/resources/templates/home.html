@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>bihar_vibes website home page</title>
@@ -11,6 +12,17 @@
       <p>
       Welcome to the bihar_vibes website home page!
       </p>
+
+      <hr>
+      <!--display user name and roles -->
+
+      <p>
+          User: <span sec:authentication="principal.username"></span>
+            <br><br>
+          Role(s): <span sec:authentication="principal.authorities"></span>
+      </p>
+
+      <hr>
 
 <!-- Add logout form -->
 <form action="#" th:action="@{/logout}" method="post">
