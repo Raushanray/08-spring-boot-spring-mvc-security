@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>bihar_vibes website home page</title>
@@ -8,7 +8,14 @@
 
       <h2>bihar_vibes website home page!</h2>
       <hr>
+      <p>
       Welcome to the bihar_vibes website home page!
+      </p>
+
+<!-- Add logout form -->
+<form action="#" th:action="@{/logout}" method="post">
+   <input type="submit" value="logout" />
+</form>
 
 </body>
 </html>
