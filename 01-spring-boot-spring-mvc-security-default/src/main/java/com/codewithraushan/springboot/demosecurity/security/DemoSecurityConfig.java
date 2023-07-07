@@ -6,11 +6,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
 
+    /*
     @Bean
     public InMemoryUserDetailsManager userDetailsManager(){
 
@@ -33,6 +38,14 @@ public class DemoSecurityConfig {
 
         return new InMemoryUserDetailsManager(ravi,raushan,sumit);
 
+    }
+
+     */
+
+    //add support for jdbc ... no more hard code users
+    @Bean
+    public UserDetailsManager userDetailsManager(DataSource dataSource){
+        return new JdbcUserDetailsManager(dataSource);
     }
 
     @Bean
